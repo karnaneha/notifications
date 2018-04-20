@@ -1,5 +1,7 @@
 package asia.ait.sad.notifications;
 
+import asia.ait.sad.notifications.request.ReqFCM;
+import com.google.gson.Gson;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +23,7 @@ public class NotificationService {
 
         if(userToken == null) {
             userToken = new UserToken();
-            userToken.setUserId(userId);
+            userToken.setId(userId);
         }
 
         userToken.setToken(token);
@@ -49,13 +51,17 @@ public class NotificationService {
         List<Notification> notificationList = new ArrayList<>();
         notificationList.add(notification);
 
-        JSONObject jsonRequest = GFCMHelper.notificationsToJSON(notificationList, userToken.getToken());
+        ReqFCM fcm = GFCMHelper.notificationsToReqFCM(notificationList, userToken.getToken());
 
-        boolean success = GFCMHelper.sendNotification(jsonRequest);
+        boolean success = GFCMHelper.sendNotification(fcm);
 
         notification.setFailed(!success);
 
         entityManager.persist(notification);
+
+        Gson gson = new Gson();
+
+        System.out.println(gson.toJson(fcm));
     }
 }
 

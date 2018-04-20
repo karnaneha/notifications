@@ -12,17 +12,17 @@ import java.util.Date;
 
 public class UserToken implements Serializable{
     @Id
-    private String userId; // user_id from User table
+    private String id; // user_id from User table
 
     private String token;
     private Date timestamp;
 
-    public String getUserId(){
-        return userId;
+    public String getId() {
+        return id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getToken() {

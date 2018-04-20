@@ -19,4 +19,7 @@ public class ReqFCM {
     public void setTo(String to) {
         this.to = to;
     }
+
+    public ReqFCM() {
+    }
 }

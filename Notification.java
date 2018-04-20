@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import org.springframework.data.annotation.Transient;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
@@ -12,7 +13,8 @@ import java.util.Date;
 @Entity
 public class Notification implements Serializable {
     @Id
-    long id;
+    @GeneratedValue
+    int id;
 
     private String userId;
     private String title;
@@ -21,11 +23,11 @@ public class Notification implements Serializable {
     private boolean failed;
 
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
