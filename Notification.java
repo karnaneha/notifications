@@ -1,5 +1,9 @@
 package asia.ait.sad.notifications;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.data.annotation.Transient;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
@@ -8,28 +12,29 @@ import java.util.Date;
 @Entity
 public class Notification implements Serializable {
     @Id
-    String id;
+    long id;
 
-    private String user_id;
+    private String userId;
     private String title;
+    private String message;
     private Date date;
-    private String status;
+    private boolean failed;
 
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {
@@ -48,12 +53,20 @@ public class Notification implements Serializable {
         this.date = date;
     }
 
-    public String getStatus() {
-        return status;
+    public String getMessage() {
+        return message;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public boolean isFailed() {
+        return failed;
+    }
+
+    public void setFailed(boolean failed) {
+        this.failed = failed;
     }
 }
 

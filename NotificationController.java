@@ -22,14 +22,15 @@ public class NotificationController {
             JSONObject request = new JSONObject(json);
             String userId = request.get("userId").toString();
             String token = request.get("token").toString();
-            System.out.println(userId);
-            System.out.println(token);
+
+            notificationService.storeToken(userId, token);
+
         } catch (JSONException e) {
             e.printStackTrace();
-            return "{ status: 'failed' }";
+            return "{ \"success\": 0 }";
         }
 
-        return "{ status: 'success' }";
+        return "{ \"success\": 1 }";
     }
 
 }

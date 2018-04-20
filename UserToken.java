@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Date;
 
 @Entity
 
@@ -14,17 +15,7 @@ public class UserToken implements Serializable{
     private String userId; // user_id from User table
 
     private String token;
-    private Instant latest;
-    public UserToken(){
-
-    }
-
-    public UserToken(String userId, String token) {
-        this.userId = userId;
-        this.token = token;
-        this.latest = Instant.now();
-    }
-
+    private Date timestamp;
 
     public String getUserId(){
         return userId;
@@ -42,5 +33,11 @@ public class UserToken implements Serializable{
         this.token = token;
     }
 
-    public Instant getCreated() {return latest; }
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
 }
