@@ -11,9 +11,7 @@ import java.time.Instant;
 
 public class UserToken implements Serializable{
     @Id
-    String id;
-
-    private String user_id; // user_id from User table
+    private String userId; // user_id from User table
 
     private String token;
     private Instant latest;
@@ -21,28 +19,19 @@ public class UserToken implements Serializable{
 
     }
 
-    public UserToken(String id, String user_id, String token) {
-        this.id = id;
-        this.user_id = user_id;
+    public UserToken(String userId, String token) {
+        this.userId = userId;
         this.token = token;
         this.latest = Instant.now();
     }
 
 
-    public String getId() {
-        return id;
+    public String getUserId(){
+        return userId;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getToken() {

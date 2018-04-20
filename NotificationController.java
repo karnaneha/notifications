@@ -20,9 +20,9 @@ public class NotificationController {
     {
         try {
             JSONObject request = new JSONObject(json);
-            String user_id = request.get("user_id").toString();
+            String userId = request.get("userId").toString();
             String token = request.get("token").toString();
-            System.out.println(user_id);
+            System.out.println(userId);
             System.out.println(token);
         } catch (JSONException e) {
             e.printStackTrace();

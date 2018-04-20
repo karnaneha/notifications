@@ -15,5 +15,11 @@ public class NotificationService {
     @Autowired
     private EntityManager entityManager;
 
+    public boolean sendNotification(String userId){
+        return true;
     }
+
+
+
+}
 
