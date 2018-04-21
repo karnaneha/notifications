@@ -33,6 +33,7 @@ public class GFCMHelper {
             reqNotification.setUserId(notification.getUserId());
             reqNotification.setTitle(notification.getTitle());
             reqNotification.setMessage(notification.getMessage());
+            reqNotification.setDate(notification.getDate());
             reqNotificationList.add(reqNotification);
         }
 
