@@ -34,7 +34,7 @@ public class NotificationController {
         return "{ \"success\": 1 }";
     }
 
-    @PostMapping(path="/testnotificaiton",
+    @PostMapping(path="/testnotification",
             consumes = "application/json", produces = "application/json")
     String testNotification(
             @RequestBody String json)
